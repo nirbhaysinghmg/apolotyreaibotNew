@@ -1,0 +1,80 @@
+INFO:     Started server process [1162414]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on https://0.0.0.0:9006 (Press CTRL+C to quit)
+INFO:     ('103.211.19.180', 58034) - "WebSocket /chat/ws" [accepted]
+INFO:     connection open
+INFO:     ('103.211.19.180', 58036) - "WebSocket /chat/ws" [accepted]
+INFO:     connection open
+INFO:     connection closed
+INFO:     ('103.211.19.180', 58061) - "WebSocket /chat/ws" [accepted]
+INFO:     connection open
+INFO:     ('103.211.19.180', 58097) - "WebSocket /chat/ws" [accepted]
+INFO:     connection open
+Sessions table schema updated successfully
+New WebSocket connection attempt...
+WebSocket connection accepted
+Created new session: 7573fba1 for user: user_20250729150240_4a060a25
+Recording analytics event: session_start for user user_20250729150240_4a060a25 session 7573fba1
+Creating new user: user_20250729150240_4a060a25
+Recording session start for user user_20250729150240_4a060a25
+Successfully committed analytics event: session_start
+New WebSocket connection attempt...
+WebSocket connection accepted
+Created new session: 5cf1b376 for user: user_20250729150240_0029f4b5
+Recording analytics event: session_start for user user_20250729150240_0029f4b5 session 5cf1b376
+Creating new user: user_20250729150240_0029f4b5
+Recording session start for user user_20250729150240_0029f4b5
+Successfully committed analytics event: session_start
+WebSocket disconnected for session 7573fba1
+Error executing query: 1054 (42S22): Unknown column 'end_time' in 'field list'
+Fatal WebSocket error: 1054 (42S22): Unknown column 'end_time' in 'field list'
+Cleaning up session 7573fba1
+New WebSocket connection attempt...
+WebSocket connection accepted
+Created new session: 0da2ab85 for user: user_20250729150255_1941f2ed
+Recording analytics event: session_start for user user_20250729150255_1941f2ed session 0da2ab85
+Creating new user: user_20250729150255_1941f2ed
+Recording session start for user user_20250729150255_1941f2ed
+Successfully committed analytics event: session_start
+New WebSocket connection attempt...
+WebSocket connection accepted
+Created new session: 20277246 for user: user_20250729150314_c131e1d9
+Recording analytics event: session_start for user user_20250729150314_c131e1d9 session 20277246
+Creating new user: user_20250729150314_c131e1d9
+Recording session start for user user_20250729150314_c131e1d9
+Successfully committed analytics event: session_start
+Received message from client: {"type":"analytics","data":{"action":"question_asked","userId":"user_hn8mu8owawk","sessionId":"sessi...
+Received message from client: {"user_input":"Hii what are the dealers near me","chat_history":[],"user_id":"user_hn8mu8owawk","ses...
+Recording analytics event: user_identified for user user_hn8mu8owawk session 20277246
+Successfully committed analytics event: user_identified
+Processing user input: Hii what are the dealers near me...
+User location: {'latitude': 26.791121426398497, 'longitude': 80.97157263576705, 'accuracy': 68, 'timestamp': 1753781595418}
+Making request to Nominatim: https://nominatim.openstreetmap.org/reverse with params: {'lat': 26.791121426398497, 'lon': 80.97157263576705, 'format': 'json', 'addressdetails': 1, 'accept-language': 'en'}
+Response status: 200
+Response data: {'place_id': 225172714, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 979954244, 'lat': '26.7911197', 'lon': '80.9715740', 'class': 'highway', 'type': 'residential', 'place_rank': 26, 'importance': 0.05340235523002972, 'addresstype': 'road', 'name': '', 'display_name': 'Lucknow, Uttar Pradesh, 226029, India', 'address': {'city': 'Lucknow', 'county': 'Lucknow', 'state_district': 'Lucknow', 'state': 'Uttar Pradesh', 'ISO3166-2-lvl4': 'IN-UP', 'postcode': '226029', 'country': 'India', 'country_code': 'in'}, 'boundingbox': ['26.7909267', '26.7920797', '80.9713939', '80.9725641']}
+Address data: {'city': 'Lucknow', 'county': 'Lucknow', 'state_district': 'Lucknow', 'state': 'Uttar Pradesh', 'ISO3166-2-lvl4': 'IN-UP', 'postcode': '226029', 'country': 'India', 'country_code': 'in'}
+Extracted city: Lucknow
+Detected city: Lucknow
+Recording analytics event: question_asked for user user_hn8mu8owawk session 20277246
+Recording question for user user_hn8mu8owawk: Hii what are the dealers near me...
+Creating new session: 20277246
+Created new conversation: 09b29b43-987a-4dcf-954d-ed253e3c1623
+Inserted user message: effef69e-1d75-42d4-b15e-cd4b69b75892
+Successfully committed analytics event: question_asked
+Loading existing vector store...
+Recording analytics event: bot_response for user user_hn8mu8owawk session 20277246
+Recording bot response for user user_hn8mu8owawk
+Inserted bot message: 270305d8-df71-4b7f-8d0a-9647a49e8ecb
+Successfully committed analytics event: bot_response
+Response sent successfully for session 20277246
+INFO:     103.211.19.180:58134 - "OPTIONS /chat/generate-questions HTTP/1.1" 200 OK
+Generating questions for topic: dealer
+Conversation history length: 3
+Formatted history: User: Hii what are the dealers near me
+Bot: Hello! As Apollo Tyres' official AI assistant, I can help you locate the nearest dealers in Lucknow.
+
+Unfortunately, I do not have a real-time dealer locato...
+Generated questions: ['Can you provide the direct link to the dealer locator on the Apollo Tyres website?', 'Are there any Apollo Tyres dealers in Lucknow that specialize in a particular type of vehicle, like SUVs or commercial vehicles?', 'Besides visiting the website, is there a customer service number I can call to find dealers in Lucknow?', 'Do any of the dealers near me offer installation services for Apollo Tyres?', 'Are there any current promotions or discounts available at Apollo Tyres dealers in Lucknow?']
+Final questions to return: ['Can you provide the direct link to the dealer locator on the Apollo Tyres website?', 'Are there any Apollo Tyres dealers in Lucknow that specialize in a particular type of vehicle, like SUVs or commercial vehicles?', 'Besides visiting the website, is there a customer service number I can call to find dealers in Lucknow?', 'Do any of the dealers near me offer installation services for Apollo Tyres?', 'Are there any current promotions or discounts available at Apollo Tyres dealers in Lucknow?']
+INFO:     103.211.19.180:58134 - "POST /chat/generate-questions HTTP/1.1" 200 OK
