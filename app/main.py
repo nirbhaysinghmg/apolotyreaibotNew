@@ -1,4 +1,8 @@
 import os
+import asyncio
+import threading
+import time
+import requests
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
 
 from fastapi import FastAPI
@@ -33,6 +37,29 @@ app.include_router(analytics.router, prefix="/analytics", tags=["Analytics"])
 
 # Initialize database schema
 update_sessions_table()
+
+# Background task to mark inactive users
+def cleanup_inactive_users():
+    """Background task to mark inactive users every 5 minutes"""
+    while True:
+        try:
+            response = requests.post(
+                "http://localhost:9006/analytics/mark_inactive_timeout",
+                timeout=10
+            )
+            if response.status_code == 200:
+                print("✅ Cleaned up inactive users successfully")
+            else:
+                print(f"❌ Failed to cleanup inactive users: {response.status_code}")
+        except Exception as e:
+            print(f"❌ Error in cleanup task: {e}")
+        
+        time.sleep(300)  # Run every 5 minutes
+
+# Start background task
+cleanup_thread = threading.Thread(target=cleanup_inactive_users, daemon=True)
+cleanup_thread.start()
+print("🚀 Started background cleanup task (runs every 5 minutes)")
 
 @app.get("/")
 async def root():

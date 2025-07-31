@@ -77,6 +77,18 @@ def update_sessions_table():
                 ALTER TABLE sessions
                 ADD COLUMN location_data JSON
             """, fetch=False)
+
+        if 'duration' not in existing_columns:
+            execute_query("""
+                ALTER TABLE sessions
+                ADD COLUMN duration INT DEFAULT 0
+            """, fetch=False)
+
+        if 'end_time' not in existing_columns:
+            execute_query("""
+                ALTER TABLE sessions
+                ADD COLUMN end_time DATETIME
+            """, fetch=False)
             
         print("Sessions table schema updated successfully")
     except Error as e:

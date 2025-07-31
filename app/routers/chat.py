@@ -95,24 +95,26 @@ Conversation History:
 
 Current Topic: {current_topic}
 
-Generate 5 short, specific questions that:
-1. Are only related to what the user has been asking about
-2. Help the user get more detailed information about topics mentioned in the conversation
-3. Are practical and actionable based on the conversation context
-4. Are phrased as natural follow-up questions
+Generate 5 conversational follow-up questions that:
+1. Help understand the user's specific needs and preferences
+2. Ask about driving patterns, usage, and priorities
+3. Gather information needed for personalized tyre recommendations
+4. Are phrased naturally and conversationally
+5. Focus on understanding the user's requirements before making recommendations
 
-Focus on:
-- Expanding on topics already discussed
-- Asking for more specific details about mentioned products/services
-- Clarifying information that might need more explanation
-- Suggesting related topics that would be helpful
-- Following up on any incomplete information or unclear points
+Focus on questions about:
+- Driving patterns (city, highway, off-road, long trips)
+- Usage priorities (fuel economy, performance, comfort, durability, budget)
+- Driving conditions (weather, road conditions, load carrying)
+- Vehicle type and model specifics
+- Previous tyre experience and preferences
 
 Make sure the questions are:
-- Directly related to the user's previous questions
+- Conversational and friendly in tone
+- Designed to gather information for better recommendations
 - Specific to Apollo Tyres products and services
-- Helpful for the user's current needs
 - Natural conversation flow
+- Not too technical or overwhelming
 
 Return only the questions, one per line, without numbering or bullet points.
 """
@@ -133,11 +135,11 @@ Return only the questions, one per line, without numbering or bullet points.
         elif len(questions) < 5:
             # Add some fallback questions if not enough were generated
             fallback_questions = [
-                "What is the warranty period for Apollo tyres?",
-                "How do I find a nearby Apollo dealer?",
-                "What are the different types of Apollo tyres?",
-                "How to maintain my tyres properly?",
-                "What is the recommended tyre pressure?"
+                "What type of driving do you do most often?",
+                "Are you looking for fuel efficiency or performance?",
+                "What's your budget range for tyres?",
+                "Do you drive in city or highway more?",
+                "What's your vehicle model and year?"
             ]
             questions.extend(fallback_questions[:5-len(questions)])
         
@@ -148,11 +150,11 @@ Return only the questions, one per line, without numbering or bullet points.
         print(f"Error generating questions: {e}")
         # Return fallback questions if generation fails
         fallback_questions = [
-            "What is the warranty period for Apollo tyres?",
-            "How do I find a nearby Apollo dealer?",
-            "What are the different types of Apollo tyres?",
-            "How to maintain my tyres properly?",
-            "What is the recommended tyre pressure?"
+            "What type of driving do you do most often?",
+            "Are you looking for fuel efficiency or performance?",
+            "What's your budget range for tyres?",
+            "Do you drive in city or highway more?",
+            "What's your vehicle model and year?"
         ]
         return {"questions": fallback_questions}
 

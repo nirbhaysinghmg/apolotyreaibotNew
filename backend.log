@@ -1,80 +1,88 @@
-INFO:     Started server process [1162414]
+INFO:     Started server process [1298368]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on https://0.0.0.0:9006 (Press CTRL+C to quit)
-INFO:     ('103.211.19.180', 58034) - "WebSocket /chat/ws" [accepted]
-INFO:     connection open
-INFO:     ('103.211.19.180', 58036) - "WebSocket /chat/ws" [accepted]
-INFO:     connection open
-INFO:     connection closed
-INFO:     ('103.211.19.180', 58061) - "WebSocket /chat/ws" [accepted]
-INFO:     connection open
-INFO:     ('103.211.19.180', 58097) - "WebSocket /chat/ws" [accepted]
+INFO:     ('103.211.19.180', 64782) - "WebSocket /chat/ws" [accepted]
 INFO:     connection open
 Sessions table schema updated successfully
+🚀 Started background cleanup task (runs every 5 minutes)
+❌ Error in cleanup task: HTTPConnectionPool(host='localhost', port=9006): Max retries exceeded with url: /analytics/mark_inactive_timeout (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f6254707400>: Failed to establish a new connection: [Errno 111] Connection refused'))
 New WebSocket connection attempt...
 WebSocket connection accepted
-Created new session: 7573fba1 for user: user_20250729150240_4a060a25
-Recording analytics event: session_start for user user_20250729150240_4a060a25 session 7573fba1
-Creating new user: user_20250729150240_4a060a25
-Recording session start for user user_20250729150240_4a060a25
+Created new session: 69204057 for user: user_20250731110204_17121020
+Recording analytics event: session_start for user user_20250731110204_17121020 session 69204057
+Creating new user: user_20250731110204_17121020
+Recording session start for user user_20250731110204_17121020
 Successfully committed analytics event: session_start
-New WebSocket connection attempt...
-WebSocket connection accepted
-Created new session: 5cf1b376 for user: user_20250729150240_0029f4b5
-Recording analytics event: session_start for user user_20250729150240_0029f4b5 session 5cf1b376
-Creating new user: user_20250729150240_0029f4b5
-Recording session start for user user_20250729150240_0029f4b5
-Successfully committed analytics event: session_start
-WebSocket disconnected for session 7573fba1
-Error executing query: 1054 (42S22): Unknown column 'end_time' in 'field list'
-Fatal WebSocket error: 1054 (42S22): Unknown column 'end_time' in 'field list'
-Cleaning up session 7573fba1
-New WebSocket connection attempt...
-WebSocket connection accepted
-Created new session: 0da2ab85 for user: user_20250729150255_1941f2ed
-Recording analytics event: session_start for user user_20250729150255_1941f2ed session 0da2ab85
-Creating new user: user_20250729150255_1941f2ed
-Recording session start for user user_20250729150255_1941f2ed
-Successfully committed analytics event: session_start
-New WebSocket connection attempt...
-WebSocket connection accepted
-Created new session: 20277246 for user: user_20250729150314_c131e1d9
-Recording analytics event: session_start for user user_20250729150314_c131e1d9 session 20277246
-Creating new user: user_20250729150314_c131e1d9
-Recording session start for user user_20250729150314_c131e1d9
-Successfully committed analytics event: session_start
-Received message from client: {"type":"analytics","data":{"action":"question_asked","userId":"user_hn8mu8owawk","sessionId":"sessi...
-Received message from client: {"user_input":"Hii what are the dealers near me","chat_history":[],"user_id":"user_hn8mu8owawk","ses...
-Recording analytics event: user_identified for user user_hn8mu8owawk session 20277246
+Received message from client: {"type":"analytics","data":{"action":"question_asked","userId":"user_wj52jsxh65g","sessionId":"sessi...
+Received message from client: {"user_input":"I want tyre of my apache rtr 160","chat_history":[],"user_id":"user_wj52jsxh65g","ses...
+Recording analytics event: user_identified for user user_wj52jsxh65g session 69204057
 Successfully committed analytics event: user_identified
-Processing user input: Hii what are the dealers near me...
-User location: {'latitude': 26.791121426398497, 'longitude': 80.97157263576705, 'accuracy': 68, 'timestamp': 1753781595418}
-Making request to Nominatim: https://nominatim.openstreetmap.org/reverse with params: {'lat': 26.791121426398497, 'lon': 80.97157263576705, 'format': 'json', 'addressdetails': 1, 'accept-language': 'en'}
+Processing user input: I want tyre of my apache rtr 160...
+User location: {'latitude': 26.8715, 'longitude': 80.8997, 'accuracy': 41708, 'timestamp': 1753939933321}
+Making request to Nominatim: https://nominatim.openstreetmap.org/reverse with params: {'lat': 26.8715, 'lon': 80.8997, 'format': 'json', 'addressdetails': 1, 'accept-language': 'en'}
 Response status: 200
-Response data: {'place_id': 225172714, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 979954244, 'lat': '26.7911197', 'lon': '80.9715740', 'class': 'highway', 'type': 'residential', 'place_rank': 26, 'importance': 0.05340235523002972, 'addresstype': 'road', 'name': '', 'display_name': 'Lucknow, Uttar Pradesh, 226029, India', 'address': {'city': 'Lucknow', 'county': 'Lucknow', 'state_district': 'Lucknow', 'state': 'Uttar Pradesh', 'ISO3166-2-lvl4': 'IN-UP', 'postcode': '226029', 'country': 'India', 'country_code': 'in'}, 'boundingbox': ['26.7909267', '26.7920797', '80.9713939', '80.9725641']}
-Address data: {'city': 'Lucknow', 'county': 'Lucknow', 'state_district': 'Lucknow', 'state': 'Uttar Pradesh', 'ISO3166-2-lvl4': 'IN-UP', 'postcode': '226029', 'country': 'India', 'country_code': 'in'}
+Response data: {'place_id': 225123495, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 212500803, 'lat': '26.8714764', 'lon': '80.8997734', 'class': 'highway', 'type': 'tertiary', 'place_rank': 26, 'importance': 0.05340235523002972, 'addresstype': 'road', 'name': '', 'display_name': 'Chowk, Lucknow, Uttar Pradesh, 226003, India', 'address': {'suburb': 'Chowk', 'city': 'Lucknow', 'county': 'Lucknow', 'state_district': 'Lucknow', 'state': 'Uttar Pradesh', 'ISO3166-2-lvl4': 'IN-UP', 'postcode': '226003', 'country': 'India', 'country_code': 'in'}, 'boundingbox': ['26.8712534', '26.8741905', '80.8997017', '80.9025008']}
+Address data: {'suburb': 'Chowk', 'city': 'Lucknow', 'county': 'Lucknow', 'state_district': 'Lucknow', 'state': 'Uttar Pradesh', 'ISO3166-2-lvl4': 'IN-UP', 'postcode': '226003', 'country': 'India', 'country_code': 'in'}
 Extracted city: Lucknow
 Detected city: Lucknow
-Recording analytics event: question_asked for user user_hn8mu8owawk session 20277246
-Recording question for user user_hn8mu8owawk: Hii what are the dealers near me...
-Creating new session: 20277246
-Created new conversation: 09b29b43-987a-4dcf-954d-ed253e3c1623
-Inserted user message: effef69e-1d75-42d4-b15e-cd4b69b75892
+Recording analytics event: question_asked for user user_wj52jsxh65g session 69204057
+Recording question for user user_wj52jsxh65g: I want tyre of my apache rtr 160...
+Creating new session: 69204057
+Created new conversation: bf878ecf-edb3-4451-a2b1-194e73c5a9e5
+Inserted user message: 78913bd6-43d7-42fb-bb56-33f5b60eabd6
 Successfully committed analytics event: question_asked
 Loading existing vector store...
-Recording analytics event: bot_response for user user_hn8mu8owawk session 20277246
-Recording bot response for user user_hn8mu8owawk
-Inserted bot message: 270305d8-df71-4b7f-8d0a-9647a49e8ecb
+Recording analytics event: bot_response for user user_wj52jsxh65g session 69204057
+Recording bot response for user user_wj52jsxh65g
+Inserted bot message: 696eb270-db34-4141-9468-b79f6d730d52
 Successfully committed analytics event: bot_response
-Response sent successfully for session 20277246
-INFO:     103.211.19.180:58134 - "OPTIONS /chat/generate-questions HTTP/1.1" 200 OK
-Generating questions for topic: dealer
+Response sent successfully for session 69204057
+INFO:     103.211.19.180:64810 - "OPTIONS /chat/generate-questions HTTP/1.1" 200 OK
+Generating questions for topic: general
 Conversation history length: 3
-Formatted history: User: Hii what are the dealers near me
-Bot: Hello! As Apollo Tyres' official AI assistant, I can help you locate the nearest dealers in Lucknow.
+Formatted history: User: I want tyre of my apache rtr 160
+Bot: That's a great bike! For your Apache RTR 160, many riders choose the Apollo ActiZip F2 or S4. They offer a good balance of grip and durability.
 
-Unfortunately, I do not have a real-time dealer locato...
-Generated questions: ['Can you provide the direct link to the dealer locator on the Apollo Tyres website?', 'Are there any Apollo Tyres dealers in Lucknow that specialize in a particular type of vehicle, like SUVs or commercial vehicles?', 'Besides visiting the website, is there a customer service number I can call to find dealers in Lucknow?', 'Do any of the dealers near me offer installation services for Apollo Tyres?', 'Are there any current promotions or discounts available at Apollo Tyres dealers in Lucknow?']
-Final questions to return: ['Can you provide the direct link to the dealer locator on the Apollo Tyres website?', 'Are there any Apollo Tyres dealers in Lucknow that specialize in a particular type of vehicle, like SUVs or commercial vehicles?', 'Besides visiting the website, is there a customer service number I can call to find dealers in Lucknow?', 'Do any of the dealers near me offer installation services for Apollo Tyres?', 'Are there any current promotions or discounts available at Apollo Tyres dealers in Lucknow?']
-INFO:     103.211.19.180:58134 - "POST /chat/generate-questions HTTP/1.1" 200 OK
+To help me ...
+Generated questions: ['Got it! So, besides grip and durability, is fuel efficiency a big concern for you when choosing a tyre?', 'Are there any specific road conditions you frequently encounter around Lucknow, like rough patches or areas prone to waterlogging?', 'Have you used Apollo tyres before, and if so, what did you think of them?', 'Do you often carry a pillion rider or luggage on your Apache RTR 160?', "What's your budget looking like for a new set of tyres?"]
+Final questions to return: ['Got it! So, besides grip and durability, is fuel efficiency a big concern for you when choosing a tyre?', 'Are there any specific road conditions you frequently encounter around Lucknow, like rough patches or areas prone to waterlogging?', 'Have you used Apollo tyres before, and if so, what did you think of them?', 'Do you often carry a pillion rider or luggage on your Apache RTR 160?', "What's your budget looking like for a new set of tyres?"]
+INFO:     103.211.19.180:64810 - "POST /chat/generate-questions HTTP/1.1" 200 OK
+Received message from client: {"type":"analytics","data":{"action":"heartbeat","userId":"user_wj52jsxh65g","sessionId":"session_26...
+INFO:     103.211.19.180:64867 - "OPTIONS /analytics/user_left HTTP/1.1" 200 OK
+Recording analytics event: user_left for user user_wj52jsxh65g session session_26.8715_80.8997_29232332
+Recording user left for user user_wj52jsxh65g
+Successfully committed analytics event: user_left
+INFO:     103.211.19.180:64867 - "POST /analytics/user_left HTTP/1.1" 200 OK
+Received message from client: {"type":"analytics","data":{"action":"question_asked","userId":"user_wj52jsxh65g","sessionId":"sessi...
+Received message from client: {"user_input":"What is the best tyre for my scorpio car","chat_history":[],"user_id":"user_wj52jsxh6...
+Recording analytics event: user_identified for user user_wj52jsxh65g session 69204057
+Successfully committed analytics event: user_identified
+Processing user input: What is the best tyre for my scorpio car...
+User location: {'latitude': 26.8715, 'longitude': 80.8997, 'accuracy': 41708, 'timestamp': 1753939933321}
+Detected city: Lucknow
+Recording analytics event: question_asked for user user_wj52jsxh65g session 69204057
+Recording question for user user_wj52jsxh65g: What is the best tyre for my scorpio car...
+Using existing conversation: bf878ecf-edb3-4451-a2b1-194e73c5a9e5
+Inserted user message: 2dc50871-efdd-4a92-9687-aed69f5a476d
+Successfully committed analytics event: question_asked
+Loading existing vector store...
+Recording analytics event: bot_response for user user_wj52jsxh65g session 69204057
+Recording bot response for user user_wj52jsxh65g
+Inserted bot message: c81229b9-bda0-4ea1-9709-0aa317e5213d
+Successfully committed analytics event: bot_response
+Response sent successfully for session 69204057
+Generating questions for topic: general
+Conversation history length: 5
+Formatted history: User: I want tyre of my apache rtr 160
+Bot: That's a great bike! For your Apache RTR 160, many riders choose the Apollo ActiZip F2 or S4. They offer a good balance of grip and durability.
+
+To help me ...
+Generated questions: ['Besides the Apache and Scorpio, what other vehicles are you looking to equip with Apollo tyres?', 'Thinking generally, what is the most important factor for you when choosing tyres for any of your vehicles: budget, longevity, or performance?', 'Do you typically prefer a tyre that offers a smoother, quieter ride, or are you more interested in maximizing fuel efficiency?', 'Have you had any experience with Apollo Tyres before, and if so, what did you think of them?', 'Are there any specific road conditions you frequently encounter, like rough roads or heavy rain, that we should consider when recommending tyres?']
+Final questions to return: ['Besides the Apache and Scorpio, what other vehicles are you looking to equip with Apollo tyres?', 'Thinking generally, what is the most important factor for you when choosing tyres for any of your vehicles: budget, longevity, or performance?', 'Do you typically prefer a tyre that offers a smoother, quieter ride, or are you more interested in maximizing fuel efficiency?', 'Have you had any experience with Apollo Tyres before, and if so, what did you think of them?', 'Are there any specific road conditions you frequently encounter, like rough roads or heavy rain, that we should consider when recommending tyres?']
+INFO:     103.211.19.180:64927 - "POST /chat/generate-questions HTTP/1.1" 200 OK
+Received message from client: {"type":"analytics","data":{"action":"heartbeat","userId":"user_wj52jsxh65g","sessionId":"session_26...
+Recording analytics event: user_left for user user_wj52jsxh65g session session_26.8715_80.8997_29232332
+Recording user left for user user_wj52jsxh65g
+Successfully committed analytics event: user_left
+INFO:     103.211.19.180:64969 - "POST /analytics/user_left HTTP/1.1" 200 OK

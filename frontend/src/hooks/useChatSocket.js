@@ -309,9 +309,19 @@ export const useChatSocket = (setChatHistory, setStreaming, customChatUrl) => {
     // Expose the trackUserAction function globally for direct access
     window.sendAnalyticsEvent = trackUserAction;
 
+    // Set up heartbeat to keep user active
+    const heartbeatInterval = setInterval(() => {
+      if (ws.current && ws.current.readyState === WebSocket.OPEN) {
+        trackUserAction("heartbeat", {
+          timestamp: new Date().toISOString()
+        });
+      }
+    }, 60000); // Send heartbeat every minute
+
     return () => {
       // Clean up global reference when component unmounts
       window.sendAnalyticsEvent = null;
+      clearInterval(heartbeatInterval);
     };
   }, [trackUserAction]);
 

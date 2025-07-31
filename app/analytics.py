@@ -324,6 +324,35 @@ def record_user_event(user_id: str, session_id: str, event_type: str, event_data
                     connection=connection
                 )
 
+        elif event_type == "user_left":
+            print(f"Recording user left for user {user_id}")
+            # Mark user as inactive when they leave the website
+            execute_query(
+                """
+                UPDATE users
+                  SET is_active = FALSE,
+                      last_active_at = %s
+                WHERE user_id = %s
+                """,
+                (timestamp, user_id),
+                fetch=False,
+                connection=connection
+            )
+            
+            # Mark session as completed
+            execute_query(
+                """
+                UPDATE sessions
+                  SET status = 'completed',
+                      end_time = %s,
+                      duration = TIMESTAMPDIFF(SECOND, start_time, %s)
+                WHERE session_id = %s
+                """,
+                (timestamp, timestamp, session_id),
+                fetch=False,
+                connection=connection
+            )
+
         elif event_type == "user_identified":
             execute_query(
                 """
@@ -926,6 +955,62 @@ async def record_session_end(data: dict = Body(...)):
         return {"status": "success"}
     except Error as e:
         print(f"Error recording session end: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/user_left", tags=["analytics"])
+async def record_user_left(data: dict = Body(...)):
+    """Record when a user leaves the website"""
+    try:
+        user_id = data.get('user_id')
+        session_id = data.get('session_id')
+        
+        if user_id and session_id:
+            record_user_event(
+                user_id=user_id,
+                session_id=session_id,
+                event_type="user_left",
+                event_data={
+                    "timestamp": datetime.now().isoformat(),
+                    "reason": data.get('reason', 'page_closed')
+                }
+            )
+        
+        return {"status": "success", "message": "User left event recorded"}
+    except Error as e:
+        print(f"Error recording user left: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/mark_inactive_timeout", tags=["analytics"])
+async def mark_inactive_users_timeout():
+    """Mark users as inactive after 10 minutes of inactivity"""
+    try:
+        # Mark users as inactive if they haven't been active for 10 minutes
+        execute_query(
+            """
+            UPDATE users
+            SET is_active = FALSE
+            WHERE last_active_at < DATE_SUB(NOW(), INTERVAL 10 MINUTE)
+            AND is_active = TRUE
+            """,
+            fetch=False
+        )
+        
+        # Mark sessions as completed if they haven't been active for 10 minutes
+        execute_query(
+            """
+            UPDATE sessions
+            SET status = 'completed',
+                end_time = NOW(),
+                duration = TIMESTAMPDIFF(SECOND, start_time, NOW())
+            WHERE last_message_time < DATE_SUB(NOW(), INTERVAL 10 MINUTE)
+            AND status = 'active'
+            """,
+            fetch=False
+        )
+        
+        return {"status": "success", "message": "Users marked as inactive due to timeout"}
+    except Error as e:
+        print(f"Error marking users inactive due to timeout: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/events")
